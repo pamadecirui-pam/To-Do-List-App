@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-do List App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: pink;
+            margin: 20px;
+        }
+        input {
+            padding: 6px;
+        }
+        button {
+            padding: 5px;
+            margin-left: 5px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center">This is my To-Do List App</h1>
+    <input type="text" id="TaskInput" placeholder="Add a Task">
+    <button onclick="addTask()">ADD</button>
+    <ul id="TaskList"></ul>
+
+    <script>
+        const tasklist = document.getElementById('TaskList');
+
+        function addTask() {
+            const input = document.getElementById('TaskInput');
+            const task = input.value; 
+            if (task) {
+                const li = document.createElement('li');
+                li.textContent = task;
+                li.onclick = () => li.remove();
+                tasklist.appendChild(li);
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
